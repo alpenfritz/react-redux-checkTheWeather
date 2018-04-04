@@ -10,6 +10,11 @@ export function fetchWeather(city) {
   const url = `${ROOT_URL}&q=${city}`;
   const request = axios.get(url);
 
+  console.log('request', request);
+
+  // REDUX-PROMISE middleware waits for the PROMISE from the REQUEST to resolve,
+  // specifically in the PAYLOAD property
+  // (in other words: it unwraps the PROMISE for us)
   return {
     type: FETCH_WEATHER,
     payload: request,
